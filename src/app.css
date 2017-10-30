@@ -1,0 +1,50 @@
+.form
+{
+	width: 480px;
+}
+
+.form .post
+{
+	width: 460px;
+	padding: 10px;
+	margin: 0;
+}
+
+.form ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.form .item
+{
+	list-style: none;
+	padding: 5px;
+	margin-top: 1px;
+	background: #f0f0f0;
+	display: grid;
+	grid-template-columns: 30px 150px 150px 150px;
+}
+
+
+.form .item.publishing
+{
+	background: yellow;
+}
+
+.form .item.published
+{
+	background: green !important;
+}
+
+.form .item.to-remove
+{
+	background: red;
+}
+
+.form button
+{
+	margin-top: 10px;
+	margin-right: 20px;
+
+}

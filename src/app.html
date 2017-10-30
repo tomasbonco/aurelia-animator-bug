@@ -1,0 +1,56 @@
+<template>
+
+	<require from="./app.css"></require>
+
+	<div class="form">
+
+		<textarea class="post" disabled>This would area to write a post, but it is not important for demo. Just publish. </textarea>
+
+		<ul>
+
+			<li repeat.for="channel of channels" class="au-animate item ${ channel.state }">
+
+				<input type="checkbox" checked.bind="channel.selected" id.one-way="channel.name">
+				<label for.one-way="channel.name"> ${ channel.name } </label>
+				<span class="animator-state"> Animator: - </span>
+				<span class="promise-state"> Promise: - </span>
+
+			</li>
+
+		</ul>
+
+		<button click.trigger="publishPost()" disabled.bind="isPublishing"> Publish </button>
+		<button click.trigger="releaseWaitingRoom()"> Release Waiting Room </button>
+
+	</div>
+
+	<h4> Try </h4>
+
+	<ol>
+		<li> Select only one network and press Publish </li>
+		<li> Select two or more networks and press Publish </li>
+	</ol>
+
+	<h4> Current behavior </h4>
+
+	<ol>
+		<li> Once async task is completed item fades away </li>
+		<li> Once first async task is completed all futher processing is paused </li>
+	</ol>
+
+	<h4> Expected behavior </h4>
+	
+	<ol>
+		<li> Once async task is completed item fades away, as it does </li>
+		<li> Once all async tasks are completed, all items fade away at the same time </li>
+	</ol>
+
+	<h4> States </h4>
+
+	<ul>
+		<li> Yellow - async task is being performed </li>
+		<li> Red - async task finished, item was removed from JS array </li>
+		<li> Green - async task finished, item was removed from JS array and Animator has been called </li>
+	</ul>
+
+</template>
